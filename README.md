@@ -100,6 +100,7 @@ After downloading, place both `train_data.csv` and `test_data.csv` in the approp
 ```bash
 git clone https://github.com/HungLinnnnn/Baseball-prediction.git
 cd Baseball-prediction
+mkdir data
 pip install -r requirements.txt
 python predict.py
 ```
