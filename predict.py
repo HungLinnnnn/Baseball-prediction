@@ -13,9 +13,15 @@ from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 from catboost  import CatBoostClassifier, Pool, EShapCalcType, EFeaturesSelectionAlgorithm
 
+# Path of training data
+training_data_path = "train_data.csv"
+
+# Path of testing data
+testing_data_path = "test_data.csv"
+
 # Load the training data
-data = pd.read_csv('today1212/augmented_ffill_train_data_1211.csv') #訓練資料
-data_test = pd.read_csv('today1212/augmented_ffill_test_data_1211.csv') #測試資料
+data = pd.read_csv(training_data_path) #訓練資料
+data_test = pd.read_csv(testing_data_path) #測試資料
 id = data_test['id']
 X_test = data_test.iloc[:, 6:] #測試資料數值特徵
 X_test = X_test.drop(['season'], axis=1)
@@ -243,8 +249,8 @@ for i, model in enumerate(G_models):
 y_test_pred = best_G.predict(results)
 y_test_pred_binary = [True if pred >= 0.5 else False for pred in y_test_pred]
 
-# # Create a DataFrame for the predictions and save to CSV
-output_file='pred/NTUchampion.csv'  #改存檔路徑
+# Create a DataFrame for the predictions and save to CSV
+output_file='prediction.csv'  #改存檔路徑
 output = pd.DataFrame({'id': id, 'home_team_win': y_test_pred_binary})
 output.to_csv(output_file, index=False)
 print(f'Predictions saved to {output_file}')
