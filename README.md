@@ -51,7 +51,7 @@ We experimented with both dimensionality reduction and feature augmentation:
 - Logistic Regression was used for final predictions on the blended test-set features.
 - Implemented Stratified K-Fold validation.
 
-![image](https://hackmd.io/_uploads/S1MTTRmTyx.jpg)
+![image](https://github.com/user-attachments/assets/3445b7b3-5fdf-491f-803f-380da443dbe1)
 
 
 ---
